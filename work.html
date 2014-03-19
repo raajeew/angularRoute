@@ -1,0 +1,56 @@
+<div  ng-controller="myCtrl">
+
+	<div class="panel panel-default">
+	  <!-- Default panel contents -->
+	  <div class="panel-heading">
+			<h3 style="display:inline;">My Work</h3>
+			<input ng-model="searchText" class="form-control" style="float:right; width:150px" placeholder="Search" />
+	  </div>
+	  <div class="panel-body">
+		<table>
+			<tr>
+				<td width="200">Name</td>
+				<td>{{myData.name}}</td>
+			</tr>
+			<tr>
+				<td>Hometown</td>
+				<td>{{myData.hometown.name}}</td>
+			</tr>
+			<tr>
+				<td>Current Location</td>
+				<td>{{myData.location.name}}</td>
+			</tr>
+			<tr>
+				<td>Lanuguage</td>
+				<td>
+					<span ng-repeat="lang in myData.languages">{{lang.name}}, </span>
+				</td>
+			</tr>
+			<tr>
+				<td>Facebook Link</td>
+				<td><a href="{{myData.link}}" target="_blank">{{myData.link}}</a></td>
+			</tr>
+		</table>
+	  </div>
+
+	  <!-- Table -->
+		<table class="table table-hover">
+			<tr>
+				<th width="60">Index</th>
+				<th>Position</th>
+				<th>Employer</th>
+				<th>From</th>
+				<th>To</th>
+				<th>Location</th>
+			</tr>
+			<tr ng-repeat="person in myData.work | filter:searchText">
+				<td>{{$index + 1}}</td>
+				<td>{{person.position.name}}</td>
+				<td>{{person.employer.name}}</td>
+				<td>{{person.start_date}}</td>
+				<td>{{person.end_date}}</td>
+				<td>{{person.location.name}}</td>
+			</tr>
+		</table>
+	</div>	
+</div>
