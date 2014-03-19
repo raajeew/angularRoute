@@ -1,0 +1,32 @@
+<div  ng-controller="myCtrl">
+	<div class="panel panel-default">
+	  <!-- Default panel contents -->
+	  <div class="panel-heading">
+			<h3 style="display:inline;">About Me</h3>
+	  </div>
+		<table class="table table-hover">
+			<tr>
+				<td width="200">Name</td>
+				<td>{{myData.name}}</td>
+			</tr>
+			<tr>
+				<td>Hometown</td>
+				<td>{{myData.hometown.name}}</td>
+			</tr>
+			<tr>
+				<td>Current Location</td>
+				<td>{{myData.location.name}}</td>
+			</tr>
+			<tr>
+				<td>Lanuguage</td>
+				<td>
+					<span ng-repeat="lang in myData.languages">{{lang.name}}, </span>
+				</td>
+			</tr>
+			<tr>
+				<td>Facebook Link</td>
+				<td><a href="{{myData.link}}" target="_blank">{{myData.link}}</a></td>
+			</tr>
+		</table>
+	</div>
+</div>
